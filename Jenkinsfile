@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('abdimak-dockerhub')
+        DOCKERHUB_CREDENTIALS = credentials('abdimak')
     }
 
     stages {
@@ -12,12 +12,12 @@ pipeline {
             }
         }
 
-        // stage('Build') {
-        //     steps {
-        //         bat 'npm install'
-        //         bat 'npm run build'
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                bat 'npm install'
+                bat 'npm run build'
+            }
+        }
 
         stage('Build docker image') {
             steps {
@@ -35,8 +35,14 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                bat 'docker push abdimak/myimg:latest'
+                bat 'docker push abdimak/myimg'
             }
         }
     }
+    post {
+        always {
+            bat 'docker logout'
+        }
+    }
+      
 }
