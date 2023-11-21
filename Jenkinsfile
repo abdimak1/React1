@@ -22,7 +22,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    bat 'docker build -t abdimak/myimg:latest .'
+                    bat 'docker build -t abdimak/abdi:img1 .'
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                bat 'docker push abdimak/myimg'
+                bat 'docker push abdimak/abdi:image1'
             }
         }
     }
