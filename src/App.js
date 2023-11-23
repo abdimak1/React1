@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn devops on ai
+          Learn devops for ci cd
         </a>
       </header>
     </div>
