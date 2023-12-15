@@ -19,6 +19,13 @@ spec:
         image: abdimak/bestimg:latest
         ports:
         - containerPort: 3000
+        resources:
+          limits:
+            cpu: "0.5"  # Set the CPU limit to 0.5 cores
+            memory: "512Mi"  # Set the memory limit to 512 megabytes
+          requests:
+            cpu: "0.1"  # Set the CPU request to 0.1 cores
+            memory: "256Mi"  # Set the memory request to 256 megabytes
 ---
 apiVersion: v1
 kind: Service
@@ -27,7 +34,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: my-react-app
+    app: my-react-app 
   ports:
   - protocol: TCP
     port: 3000
