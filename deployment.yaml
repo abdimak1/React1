@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: myreactapp1
-        image: abdimak/bestimg:latest
+        image: abdimak/bestimg1:latest
         ports:
         - containerPort: 3000
         resources:
